@@ -10,7 +10,6 @@ namespace UI
     public sealed class GameView : MonoBehaviour
     {
         [SerializeField] public AudioSource _backgroundMusic;
-        [SerializeField] public GameObject Player;
         [SerializeField] public BaseHud[] Huds;
         [SerializeField] private List<ComponentPoolFactory> _productViews;
         [SerializeField] public Joystick Joystick;

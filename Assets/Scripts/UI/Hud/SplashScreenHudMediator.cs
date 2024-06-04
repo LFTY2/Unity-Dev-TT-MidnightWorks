@@ -13,7 +13,7 @@ namespace UI.Hud
 
         private float _duration;
         private float _elapsed;
-        private int _hotel;
+        private int _farm;
 
         protected override void Show()
         {

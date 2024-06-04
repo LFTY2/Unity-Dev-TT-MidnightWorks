@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UIAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: b457d1f6a98c34be79d5368c8cae74d4, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 417c2230c8c734080b9af4de11cff61f: 21300000
+    - 37d9810359a7040cfbd8f948c2112080: 21300000
+    - 6fe378150fd6041ae8299d69d346b541: 21300000
+    - ac5fbf752811ff7409cecec1fcd4a3ac: 21300000
+    - 6dd5edc51ffc641159a93711ce4fd976: 21300000
+    - 9fad45d705e73c14a81345ae13e9b020: 21300000
+    - 873e682881ef64f73b47887c175eac7c: 21300000
+    - 9ce79fa8ac21171489ebdf966d937a1b: 21300000
+    - 593e4fba520caad448cd1224cf475b90: 21300000
+    - 508f944b1b5f64318a5ed6c74d26191d: 21300000
+    - f7859d4c72a9e3b4b8f477b16833c811: 21300000
+    - f006d25cb8c2b0a4b982a24a6546b226: 21300000
+    - d4e09e5c7a04248459627a9ab326b81d: 21300000
+    - bfd255acdcf3e91418136abd38d61cf3: 21300000
+    - 0abb296d44b83497692dcde485b9625a: 21300000
+    - 8cb3bdcd3fc514370a79e489b88fee78: 21300000
+    - 4a5bf12f153484b42a28bb6459020c66: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 417c2230c8c734080b9af4de11cff61f, type: 3}
+  - {fileID: 21300000, guid: 37d9810359a7040cfbd8f948c2112080, type: 3}
+  - {fileID: 21300000, guid: 6fe378150fd6041ae8299d69d346b541, type: 3}
+  - {fileID: 21300000, guid: ac5fbf752811ff7409cecec1fcd4a3ac, type: 3}
+  - {fileID: 21300000, guid: 6dd5edc51ffc641159a93711ce4fd976, type: 3}
+  - {fileID: 21300000, guid: 9fad45d705e73c14a81345ae13e9b020, type: 3}
+  - {fileID: 21300000, guid: 873e682881ef64f73b47887c175eac7c, type: 3}
+  - {fileID: 21300000, guid: 9ce79fa8ac21171489ebdf966d937a1b, type: 3}
+  - {fileID: 21300000, guid: 593e4fba520caad448cd1224cf475b90, type: 3}
+  - {fileID: 21300000, guid: 508f944b1b5f64318a5ed6c74d26191d, type: 3}
+  - {fileID: 21300000, guid: f7859d4c72a9e3b4b8f477b16833c811, type: 3}
+  - {fileID: 21300000, guid: f006d25cb8c2b0a4b982a24a6546b226, type: 3}
+  - {fileID: 21300000, guid: d4e09e5c7a04248459627a9ab326b81d, type: 3}
+  - {fileID: 21300000, guid: bfd255acdcf3e91418136abd38d61cf3, type: 3}
+  - {fileID: 21300000, guid: 0abb296d44b83497692dcde485b9625a, type: 3}
+  - {fileID: 21300000, guid: 8cb3bdcd3fc514370a79e489b88fee78, type: 3}
+  - {fileID: 21300000, guid: 4a5bf12f153484b42a28bb6459020c66, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Button
+  - ButtonFadeBorders
+  - Circle
+  - volume
+  - LockIcon
+  - free-icon-star-9246024
+  - AreaIcon
+  - farm house2, w
+  - money
+  - Square
+  - music
+  - 3d-lock
+  - plus (1)
+  - home (1)
+  - AddUnitIcon
+  - SettingsIcon
+  - cross-small
+  m_RenderDataMap: {}
+  m_Tag: UIAtlas
+  m_IsVariant: 0

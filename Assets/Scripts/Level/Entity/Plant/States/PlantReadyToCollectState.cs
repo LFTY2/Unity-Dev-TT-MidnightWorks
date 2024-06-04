@@ -13,7 +13,7 @@ namespace Level.Entity.Plant.States
             _plant.View.PlantUnit.gameObject.SetActive(true);
             for (int i = 0; i < _plant.View.Config.GrowAmount; i++)
             {
-                ProductView productView = _productPool.GetProduct(_plant.View.Config.ProductType, Vector3.zero);
+                ProductView productView = _productPool.GetProduct(_plant.View.Config.ProductType);
                 _plant.InventoryController.AddProduct(productView);
             }
             _plant.ItemCollect.PLAYER_ON_ITEM += Collect;

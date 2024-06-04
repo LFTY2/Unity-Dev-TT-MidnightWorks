@@ -22,10 +22,9 @@ namespace Level.Entity.Customer
         public CustomerView View => _view;
         public CustomerNeeds CustomerNeeds { get; set; }
         
-        public CustomerController(CustomerView view, int index, Context context)
+        public CustomerController(CustomerView view, Context context)
         {
             _view = view;
-            _view.Index = index;
 
             var subContext = new Context(context);
             var injector = new Injector(subContext);

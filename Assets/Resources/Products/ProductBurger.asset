@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f00b057325411c81566d0a26003d3b, type: 3}
   m_Name: ProductBurger
   m_EditorClassIdentifier: 
+  _name: Burger
   _sellPrice: 10
   _productType: 1
   _productSprite: {fileID: 21300000, guid: 21dd8261411e444428e8cdfaaffd8d05, type: 3}

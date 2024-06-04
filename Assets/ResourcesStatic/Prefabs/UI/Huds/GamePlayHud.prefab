@@ -57,7 +57,7 @@ MonoBehaviour:
   _cashText: {fileID: 7176322417011832310}
   _lvlText: {fileID: 3569287717655000853}
   _progressText: {fileID: 134695102018923619}
-  _hotelTypeText: {fileID: 5915452290142244114}
+  _farmTypeText: {fileID: 5915452290142244114}
   _progressFillImage: {fileID: 8751494859217013395}
   _optionsButton: {fileID: 5264080320685900864}
   _homeButton: {fileID: 6904113549154847198}
@@ -515,7 +515,7 @@ PrefabInstance:
     - target: {fileID: 8773070327223831978, guid: 415912a086b8745cd87bf52b80448590,
         type: 3}
       propertyPath: m_Name
-      value: HotelTypeText
+      value: FarmTypeText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

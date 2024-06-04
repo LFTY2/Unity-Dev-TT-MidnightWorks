@@ -18,6 +18,7 @@ namespace Modules.UINotificationModule
 
         public UINotificationModule(UINotificationModuleView view) : base(view)
         {
+            _view.UINotification.Initialize(GameConstants.UINotificationPrefab);
         }
 
         public override void Initialize()

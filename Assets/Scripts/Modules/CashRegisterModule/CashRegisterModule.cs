@@ -45,6 +45,8 @@ namespace Modules.CashRegisterModule
             _itemsMap = new  Dictionary<ItemController, bool>();
             _receptionistMap = new Dictionary<ItemController, UnitController>();
             _customers = new List<CustomerController>();
+            _view.Cashier.Initialize(GameConstants.CashierPrefab);
+            _view.Customers.Initialize(GameConstants.CustomerPrefab);
         }
 
         public override void Initialize()
@@ -56,6 +58,13 @@ namespace Modules.CashRegisterModule
             _customerServedSound = new AudioInstance(_view.CashRegisterView.CustomerServedSound, AudioType.Sound);
             _audioManager.AssignAudioInstance(_customerServedSound);
 
+            _view.Cashier.OnInitialized += OnCashierInitialized;
+        }
+
+        private void OnCashierInitialized()
+        {
+            _view.Cashier.OnInitialized -= OnCashierInitialized;
+            
             UpdateReceptionistsCount();
             
             _cashRegister.Model.AddObserver(this);
@@ -73,7 +82,7 @@ namespace Modules.CashRegisterModule
             {
                 receptionist.Dispose();
             }
-            _view.Receptionist.ReleaseAllInstances();
+            _view.Cashier.ReleaseAllInstances();
 
             foreach (var customer in _customers)
             {
@@ -81,10 +90,7 @@ namespace Modules.CashRegisterModule
             }
             _customers.Clear();
 
-            foreach (var customersPool in _view.Customers)
-            {
-                customersPool.ReleaseAllInstances();
-            }
+            _view.Customers.ReleaseAllInstances();
 
             _audioManager.RemoveAudioInstance(_customerServedSound);
             _cashRegister.Dispose();
@@ -194,9 +200,9 @@ namespace Modules.CashRegisterModule
         private void CreateCustomer()
         {
             Vector3 start = _levelView.UnitSpawnPoint.position;
-            int index = Random.Range(0, _view.Customers.Length);
-            CustomerView view = _view.Customers[index].Get<CustomerView>();
-            CustomerController customer = new CustomerController(view, index, _context);
+       
+            CustomerView view = _view.Customers.Get<CustomerView>();
+            CustomerController customer = new CustomerController(view, _context);
             customer.View.transform.position = start;
             customer.SwitchToState(new CustomerInitializeState());
             customer.ON_REMOVE += OnCustomerRemove;
@@ -208,13 +214,13 @@ namespace Modules.CashRegisterModule
             customer.ON_REMOVE -= OnCustomerRemove;
 
             customer.Dispose();
-            _view.Customers[customer.View.Index].Release(customer.View);
+            _view.Customers.Release(customer.View);
             _customers.Remove(customer);
         }
 
         private void CreateCashier(ItemController item, Vector3 startPosition)
         {
-            UnitView view = _view.Receptionist.Get<UnitView>();
+            UnitView view = _view.Cashier.Get<UnitView>();
             UnitController unit = new UnitController(view, _context);
             unit.View.transform.position = startPosition;
             unit.SwitchToState(new UnitCashRegisterState());

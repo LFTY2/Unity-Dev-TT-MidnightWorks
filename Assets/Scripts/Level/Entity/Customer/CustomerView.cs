@@ -14,8 +14,6 @@ namespace Level.Entity.Customer
         public NavMeshAgent NavMeshAgent => _navMeshAgent;
         public CustomerThoughtView CustomerThought => _customerThought;
 
-        [HideInInspector] public int Index;
-
         private CustomerAnimationType _currentType;
 
         internal void Walk(int inventories)

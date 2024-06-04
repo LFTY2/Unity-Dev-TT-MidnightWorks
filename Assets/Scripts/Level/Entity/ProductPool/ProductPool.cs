@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Level.Entity.Customer;
 using Level.Entity.Product;
 using UI;
@@ -9,19 +10,20 @@ namespace Level.Entity.ProductPool
 {
     public class ProductPool 
     {
-        private List<ComponentPoolFactory> _productsPool = new List<ComponentPoolFactory>();
-        private List<ProductConfig> _productConfigs = new List<ProductConfig>();
+        private List<ComponentPoolFactory> _productsPool;
+        private List<ProductConfig> _productConfigs = new();
         public ProductPool(GameView _gameView)
         {
             _productsPool = _gameView.ProductViews;
-            foreach (var poolFactory in _productsPool)
+            _productConfigs = Resources.LoadAll<ProductConfig>("Products").ToList();
+            for (var i = 0; i < _productsPool.Count; i++)
             {
-                ProductConfig productConfig = poolFactory.Prefab.GetComponent<ProductView>().ProductConfig;
-                _productConfigs.Add(productConfig);
+                var poolFactory = _productsPool[i];
+                poolFactory.Initialize(_productConfigs[i].Name);
             }
         }
 
-        public ProductView GetProduct(ProductType productType, Vector3 spawnPos)
+        public ProductView GetProduct(ProductType productType)
         {
             for (var i = 0; i < _productConfigs.Count; i++)
             {

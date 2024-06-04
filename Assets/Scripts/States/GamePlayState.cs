@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Addressable;
 using Core.Inject;
 using Domain;
 using Level;
@@ -42,8 +43,15 @@ namespace States
         {
             _gameManager = new GameManager(_config);
             _context.Install(_gameManager);
-            
-            _playerView = Object.Instantiate(_gameView.Player, _config.Farms[GameModel.Load(_config).Farm - 1].PlayerSpawnPosition, Quaternion.identity).GetComponent<PlayerView>();
+            GetPlayer();
+        }
+
+        private async void GetPlayer()
+        {
+            GameObject player = await PrefabLoader.Load(GameConstants.PlayerPrefab);
+            player.SetActive(true);
+            _playerView = player.GetComponent<PlayerView>();
+            _playerView.transform.position = _config.Farms[GameModel.Load(_config).Farm - 1].PlayerSpawnPosition;
             _gameManager.Player = new PlayerController(_playerView, _context);
             _gameManager.Player.View.transform.eulerAngles = new Vector3(0f, 180f, 0f);
 
@@ -57,8 +65,6 @@ namespace States
             _gameView.Joystick.enabled = true;
 
             _gameManager.Player.SwitchToState(new PlayerIdleState());
-            
-            
         }
 
         public override void Dispose()

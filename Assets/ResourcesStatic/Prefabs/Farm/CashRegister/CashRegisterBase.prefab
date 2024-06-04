@@ -316,6 +316,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 316612478844688223}
     m_Modifications:
+    - target: {fileID: 1576149385154702943, guid: c8e8ed2c3f8c14544800901672fc29bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2237467303788124757, guid: c8e8ed2c3f8c14544800901672fc29bd,
         type: 3}
       propertyPath: m_RootOrder
@@ -375,6 +380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CashRegisterDesk
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639541556559553823, guid: c8e8ed2c3f8c14544800901672fc29bd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

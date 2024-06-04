@@ -14,22 +14,22 @@ namespace States
         [Inject] protected Context _context;
         [Inject] protected HudManager _hudManager;
 
-        private int _hotel;
+        private int _farm;
 
         public override void Initialize()
         {
             _hudManager.ShowAdditional<SplashScreenHudMediator>();
 
             var model = GameModel.Load(_config);
-            _hotel = model.Farm;
+            _farm = model.Farm;
 
-            if (_hotel < 1) _hotel = 1;
-            else if (_hotel >= SceneManager.sceneCountInBuildSettings)
+            if (_farm < 1) _farm = 1;
+            else if (_farm >= SceneManager.sceneCountInBuildSettings)
             {
-                _hotel = SceneManager.sceneCountInBuildSettings - 1;
+                _farm = SceneManager.sceneCountInBuildSettings - 1;
             }
 
-            model.Farm = _hotel;
+            model.Farm = _farm;
             model.Save();
 
             SceneManager.sceneLoaded += OnSceneLoaded;
@@ -68,7 +68,7 @@ namespace States
 
         protected virtual void LoadScene()
         {
-            SceneManager.LoadScene(_hotel, LoadSceneMode.Additive);
+            SceneManager.LoadScene(_farm, LoadSceneMode.Additive);
         }
     }
 }

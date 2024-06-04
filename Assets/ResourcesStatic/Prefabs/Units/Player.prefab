@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 2395809585758991563}
   - component: {fileID: 2830162635160972534}
   m_Layer: 0
-  m_Name: PlayerBellhop
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

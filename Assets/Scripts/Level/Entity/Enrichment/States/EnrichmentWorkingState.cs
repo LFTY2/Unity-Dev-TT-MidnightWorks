@@ -24,7 +24,7 @@ namespace Level.Entity.Enrichment.States
             _enrichment.View.FillBar.FillImage.fillAmount = 1 - _timeToGrow / _enrichment.View.Config.MakeTime;
             if (_timeToGrow <= 0)
             {
-                ProductView product = _productPool.GetProduct(_enrichment.View.Config.OutProduct, Vector3.zero);
+                ProductView product = _productPool.GetProduct(_enrichment.View.Config.OutProduct);
                 _enrichment.OutInventoryController.AddProduct(product);
                 _enrichment.SwitchToState(new EnrichmentWaitingState());
             }

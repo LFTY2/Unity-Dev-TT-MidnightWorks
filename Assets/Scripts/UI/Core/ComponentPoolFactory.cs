@@ -1,37 +1,26 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using Addressable;
 using UnityEngine;
 
 namespace UI.Core
 {
     public class ComponentPoolFactory : MonoBehaviour
     {
-        [SerializeField]
+        public event Action OnInitialized;
+        [SerializeField] private int _count;
+        [SerializeField] private Transform _content;
+        [SerializeField] private Transform _poolStorage;
         private GameObject _prefab;
-        [SerializeField]
-        private int _count;
-        [SerializeField]
-        private Transform _content;
-        [SerializeField]
-        private Transform _poolStorage;
-
-        private readonly HashSet<GameObject> _instances;
-        private Queue<GameObject> _pool;
-
-        public Transform Content => _content;
-        public GameObject Prefab => _prefab;
-
-        public ComponentPoolFactory()
-        {
-            _instances = new HashSet<GameObject>();
-            _pool = new Queue<GameObject>();
-        }
-
-        public int CountInstances => _instances.Count;
+        private readonly HashSet<GameObject> _instances = new();
+        private Queue<GameObject> _pool = new();
+        private int CountInstances => _instances.Count;
+        
+        public bool IsInitialized { get; private set; }
 
         private void Awake()
         {
-            if (_instances.Count > 0)
+            if (CountInstances > 0)
                 return;
 
             for (int i = 0; i < _count; i++)
@@ -41,9 +30,17 @@ namespace UI.Core
             ReleaseAllInstances();
         }
 
+        public async void Initialize(string assetAddress)
+        {
+            _prefab = await PrefabLoader.Load(assetAddress);
+            IsInitialized = true;
+            OnInitialized?.Invoke();
+        }
+        
+
         public T Get<T>() where T : Component
         {
-            return Get<T>(_instances.Count);
+            return Get<T>(CountInstances);
         }
 
         public T Get<T>(int sublingIndex) where T : Component
@@ -120,6 +117,7 @@ namespace UI.Core
         public void Dispose()
         {
             ReleaseAllInstances();
+            PrefabLoader.Unload(_prefab);
 
             foreach (GameObject gameObject in _pool)
             {

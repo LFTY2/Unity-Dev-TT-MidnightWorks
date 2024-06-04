@@ -8,8 +8,8 @@ namespace Modules.CashRegisterModule
     {
         [SerializeField] private CashRegisterView _cashRegisterView;
 
-        public ComponentPoolFactory[] Customers;
-        public ComponentPoolFactory Receptionist;
+        public ComponentPoolFactory Customers;
+        public ComponentPoolFactory Cashier;
 
         public CashRegisterView CashRegisterView => _cashRegisterView;
     }

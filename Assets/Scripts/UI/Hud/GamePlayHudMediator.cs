@@ -19,7 +19,7 @@ namespace UI.Hud
         {
 
             _view.MaxLevels = _levelView.MaxLevels;
-            _view.HotelTypeText.text = _config.Farms[_gameManager.Model.Farm - 1].Label;
+            _view.FarmTypeText.text = _config.Farms[_gameManager.Model.Farm - 1].Label;
 
             UpdateMaxProgress(_gameManager.Model.LoadLvl());
 

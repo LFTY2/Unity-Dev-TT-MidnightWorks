@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f00b057325411c81566d0a26003d3b, type: 3}
   m_Name: ProductCarrot
   m_EditorClassIdentifier: 
+  _name: Carrot
   _sellPrice: 10
   _productType: 2
   _productSprite: {fileID: 21300000, guid: d0a4ea042199bf642b1b8da8daef6c96, type: 3}

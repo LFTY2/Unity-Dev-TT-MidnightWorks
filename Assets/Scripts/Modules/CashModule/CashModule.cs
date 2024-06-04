@@ -33,15 +33,20 @@ namespace Modules.CashModule
             _cashPilesMap = new Dictionary<CashPileView, CashPileController>();
             _itemsMap = new Dictionary<ItemController, CashPileView>();
             _tempCashes = new List<CashController>();
+            _view.Initialize(GameConstants.CashPrefab);
         }
 
         public override void Initialize()
         {
-            AddCashPile(_gameManager.CashRegister.View.CashPileView, _gameManager.CashRegister.ItemCashPile, _gameManager.CashRegister.Model);
-
+            _view.OnInitialized += AddPile;
             _audioInstanceCash = new AudioInstance(_view.CashCollectSound, AudioType.Sound);
             _audioManager.AssignAudioInstance(_audioInstanceCash);
+        }
 
+        private void AddPile()
+        {
+            _view.OnInitialized -= AddPile;
+            AddCashPile(_gameManager.CashRegister.View.CashPileView, _gameManager.CashRegister.ItemCashPile, _gameManager.CashRegister.Model);
             _gameManager.FLY_TO_REMOVE_CASH += CashFlyToRemove;
         }
 
@@ -102,6 +107,7 @@ namespace Modules.CashModule
 
         private void CashFlyToPile(CashPileView cashPileView, Vector3 endPosition)
         {
+            
             CashController cash = Cash(cashPileView.transform.position + (Vector3.up * _heightAbovePile));
             cash.FlyToPile(endPosition);
             cashPileView.Cashes.Add(cash);

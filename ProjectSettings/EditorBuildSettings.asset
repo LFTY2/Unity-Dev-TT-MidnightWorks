@@ -11,4 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Farm 1.unity
     guid: 6bf7b226d544d4a9a86b7d40d801b39a
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: ba136e9771498b3419e61f30733c5243,
+      type: 2}
