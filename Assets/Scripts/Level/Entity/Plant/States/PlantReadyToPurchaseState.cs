@@ -21,7 +21,7 @@ namespace Level.Entity.Plant.States
             _audioManager.AssignAudioInstance(_upgradeSound);
             _audioManager.AssignAudioInstance(_upgradedSound);
 
-            _plant.View.PlantUnit.SetActive(false);
+            _plant.View.PlantUnit.SetActive(true);
             
             _moneyPerTick = (int)Math.Clamp(_plant.Model.PricePurchase / 100f, 1f, Mathf.Infinity);
 
